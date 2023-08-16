@@ -1,0 +1,15 @@
+@inproceedings{hu2022spatial,
+  title={Spatial-temporal space hand-in-hand: Spatial-temporal video super-resolution via cycle-projected mutual learning},
+  author={Hu, Mengshun and Jiang, Kui and Liao, Liang and Xiao, Jing and Jiang, Junjun and Wang, Zheng},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={3574--3583},
+  year={2022}
+}
+
+@article{hu2023cycmunet+,
+  title={CycMuNet+: Cycle-Projected Mutual Learning for Spatial-Temporal Video Super-Resolution},
+  author={Hu, Mengshun and Jiang, Kui and Wang, Zheng and Bai, Xiang and Hu, Ruimin},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023},
+  publisher={IEEE}
+}
