@@ -1,0 +1,417 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+<style type="text/css">
+  @font-face {
+   font-family: 'Avenir Book';
+   src: url("./fonts/Avenir_Book.ttf"); /* File to be stored at your site */
+   }
+
+body {
+font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-weight:200;
+font-size:14px;
+margin-left: auto;
+margin-right: auto;
+width: 800px;
+}
+h1 {
+font-weight:400;
+}
+h2 {
+font-weight:400;
+}
+
+p {
+font-weight:200;
+line-height: 1.4;
+}
+
+code {
+font-size: 0.8rem;
+margin: 0 0.2rem;
+padding: 0.5rem 0.8rem;
+white-space: nowrap;
+background: #efefef;
+border: 1px solid #d3d3d3;
+color: #000000;
+border-radius: 3px;
+}
+
+pre > code {
+display: block;
+white-space: pre;
+line-height: 1.5;
+padding: 0;
+margin: 0;
+}
+
+pre.prettyprint > code {
+border: none;
+}
+
+.container {
+display: flex;
+align-items: center;
+justify-content: center
+}
+.image {
+flex-basis: 40%
+}
+.text {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.disclaimerbox {
+background-color: #eee;
+border: 1px solid #eeeeee;
+border-radius: 10px ;
+-moz-border-radius: 10px ;
+-webkit-border-radius: 10px ;
+padding: 20px;
+}
+
+video.header-vid {
+height: 140px;
+border: 1px solid black;
+border-radius: 10px ;
+-moz-border-radius: 10px ;
+-webkit-border-radius: 10px ;
+}
+
+img.header-img {
+height: 140px;
+border: 1px solid black;
+border-radius: 10px ;
+-moz-border-radius: 10px ;
+-webkit-border-radius: 10px ;
+}
+
+img.rounded {
+border: 0px solid #eeeeee;
+border-radius: 10px ;
+-moz-border-radius: 10px ;
+-webkit-border-radius: 10px ;
+
+}
+
+a:link,a:visited
+{
+color: #1367a7;
+text-decoration: none;
+}
+a:hover {
+color: #208799;
+}
+
+td.dl-link {
+height: 160px;
+text-align: center;
+font-size: 22px;
+}
+
+.layered-paper-big { /_ modified from: http://css-tricks.com/snippets/css/layered-paper/ _/
+box-shadow:
+0px 0px 1px 1px rgba(0,0,0,0.35), /_ The top layer shadow _/
+5px 5px 0 0px #fff, /_ The second layer _/
+5px 5px 1px 1px rgba(0,0,0,0.35), /_ The second layer shadow _/
+10px 10px 0 0px #fff, /_ The third layer _/
+10px 10px 1px 1px rgba(0,0,0,0.35), /_ The third layer shadow _/
+15px 15px 0 0px #fff, /_ The fourth layer _/
+15px 15px 1px 1px rgba(0,0,0,0.35), /_ The fourth layer shadow _/
+20px 20px 0 0px #fff, /_ The fifth layer _/
+20px 20px 1px 1px rgba(0,0,0,0.35), /_ The fifth layer shadow _/
+25px 25px 0 0px #fff, /_ The fifth layer _/
+25px 25px 1px 1px rgba(0,0,0,0.35); /_ The fifth layer shadow _/
+margin-left: 10px;
+margin-right: 45px;
+}
+
+.layered-paper { /_ modified from: http://css-tricks.com/snippets/css/layered-paper/ _/
+box-shadow:
+0px 0px 1px 1px rgba(0,0,0,0.35), /_ The top layer shadow _/
+5px 5px 0 0px #fff, /_ The second layer _/
+5px 5px 1px 1px rgba(0,0,0,0.35), /_ The second layer shadow _/
+10px 10px 0 0px #fff, /_ The third layer _/
+10px 10px 1px 1px rgba(0,0,0,0.35); /_ The third layer shadow _/
+margin-top: 5px;
+margin-left: 10px;
+margin-right: 30px;
+margin-bottom: 5px;
+}
+
+.vert-cent {
+position: relative;
+top: 50%;
+transform: translateY(-50%);
+}
+
+hr
+{
+border: 0;
+height: 1px;
+background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+</style>
+<title>CycMuNet+</title>
+
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1093.0" data-gr-ext-installed="">
+	<center>
+    <span style="font-size:36px">CycMuNet+: Cycle-Projected Mutual Learning for Spatial-Temporal Video Super-Resolution</span><br><br>
+	</center>
+
+    <table align="center" width="800px">
+      <tbody><tr>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://mengshunhu.netlify.app/">Mengshun Hu</a><sup>1</sup></span>
+          </center>
+          </td>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://github.com/kuijiang94/home/blob/master/home.md">Kui Jiang</a><sup>1</sup></span>
+          </center>
+          </td>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://wangzwhu.github.io/home/">Zheng Wang</a><sup>1 <img class="round" style="width:20px" src="./resources/corresponding_fig.png"></sup></span>
+          </center>
+          </td>
+            <td align="center" width="160px">
+          <center>
+            <span style="font-size:16px"><a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=UeltiQ4AAAAJ">Xiang Bai</a><sup>2</sup></span>
+            </center>
+            </td>
+              <td align="center" width="160px">
+        <center>
+          <span style="font-size:16px"><a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=c9ZfhU0AAAAJ">Ruimin Hu</a><sup>1</sup></span>
+          </center>
+
+          </td></tr>
+        </tbody></table><br>
+
+      <table align="center" width="700px">
+            <tbody><tr>
+                    <td align="center" width="30px">
+              <center>
+                    <span style="font-size:16px"></span>
+                </center>
+                </td>
+                    <td align="center" width="300px">
+                    <span style="font-size:16px"><sup>1</sup>Wuhan University</span> </left>
+
+                </td>
+                    <td align="center" width="370px">
+              <center>
+                    <span style="font-size:16px"><sup>2</sup>Huazhong University of Science and Technology</span>
+                </center>
+                </td>
+        </tr></tbody></table>
+        <br>
+
+        <table align="center" width="700px">
+          <tbody><tr>
+                  <td align="center" width="700px">
+            <center>
+                  <span style="font-size:24px"><strong  style="font-weight: 900">CVPR/TPAMI</strong></span>
+              </center>
+              </td>
+      </tr></tbody></table>
+
+    <table align="center" width="700px">
+            <tbody><tr>
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">Code
+                    <a href="https://github.com/MengshunHu/CycMuNet+"> [GitHub]</a>
+                  </span>
+                </center>
+              </td>
+
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Paper <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10177211"> [arXiv]</a>
+                  </span>
+                </center>
+              </td>
+
+              <td align="center" width="200px">
+                <center>
+                  <br>
+                  <span style="font-size:20px">
+                    Cite <a href="./resources/bibtex.txt"> [BibTeX]</a>
+                  </span>
+                </center>
+              </td>
+            </tr></tbody>
+      </table>
+      <br>
+      <hr>
+      <br>
+      <center>
+          <img src="./resources/teaser.png" alt="alt text" style="width: 100%; object-fit: cover; max-width:100%;"></a>
+        </center>
+        <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+          <strong  style="font-weight: 900">Different schemes for ST-VSR.</strong>
+        (a) Two-stage based methods: (1) they perform ST-VSR task on image space by independently using the advanced S-VSR methods and         then T-VSR methods or vice versa (2). (b) One-stage based method: they unify S-VSR and T-VSR tasks into one model with                 parallel or cascaded manners without considering the mutual relations between S-VSR and T-VSR on feature space. (c) Mutual             method: our method makes full use of the mutual relations via mutual learning between S-VSR and T-VSR on feature space.
+
+      </left></p>
+
+      <center><h2> Abstract </h2> </center>
+      <p style="text-align:justify; text-justify:inter-ideograph;">
+      </p><div class="container">
+        <div class="text" width="400px">
+          <p style="text-align:justify; text-justify:inter-ideograph;">
+            <left>
+              Spatial-Temporal Video Super-Resolution (ST-VSR) aims to generate high-quality videos with higher resolution (HR) and
+              higher frame rate (HFR). Quite intuitively, pioneering two-stage based methods complete ST-VSR by directly combining two               sub-tasks: Spatial Video Super-Resolution (S-VSR) and Temporal Video Super-Resolution (T-VSR) but ignore the reciprocal               relations among them. 1) T-VSR to S-VSR: temporal correlations help accurate spatial detail representation; 2) S-VSR to               T-VSR: abundant spatial information contributes to the refinement of temporal prediction. To this end, we propose a one-               stage based Cycle-projected Mutual learning network (CycMuNet) for ST-VSR, which makes full use of spatial-temporal                   correlations via the mutual learning between S-VSR and T-VSR. Specifically, we propose to exploit the mutual information               among them via iterative up- and down projections, where the spatial and temporal features are fully fused and                         distilled, helping the high-quality video reconstruction. In addition, we also show that extending this idea to                       demonstrate a new insight towards more efficient network design (CycMuNet+), such as parameter sharing and dense                       connection on projection units and feedback mechanism in CycMuNet. Besides extensive experiments on benchmark datasets,
+              we also compare our proposed CycMuNet (+) with S-VSR and T-VSR tasks, demonstrating that our method significantly                     outperforms the state-of-the-art methods.
+</left></p>
+</div>
+</div>
+
+      <hr>
+      <center> <h2> Framework (CycMuNet) </h2> </center>
+      <p><img class="left" src="./resources/method.png" width="800px"></p>
+      <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+        <strong style="font-weight: 900">Overview of the proposed Cycle-projected Mutual learning network (CycMuNet).</strong>
+        Given two LR input frames, we first extract representations from input frames by feature extractor (FE) and obtain an                 initialized intermediate representation by feature temporal interpolation network (FTI-Net). We then adopt mutual learning to         exploit the mutual information between S-VSR and T-VSR and obtain M 2× HR and LR representations via M up-projection units and         M-1 down-projection units. Finally, we concatenate and feed the multiple 2× HR representations and LR representations into             reconstruction network (R) to reconstruct corresponding HR images and LR intermediate frame, respectively.
+        </left></p>
+
+      <center> <h2> Architecture </h2> </center>
+      <p><img class="left" src="./resources/method1.png" width="800px"></p>
+      <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+        <strong style="font-weight: 900">Architecture of the proposed UPU and DPU (CycMuNet).</strong>
+        Left: Illustration of the proposed up-projection unit (UPU) and down-projection unit (DPU) in the CycMuNet. Right:                     Illustration of the proposed scale down module, scale up module and fusion residual block. D, U and C denote the downsampling,         upsampling and channel concatenation, respectively.
+
+         </left></p>
+
+      <center> <h2> Upgraded framework (CycMuNet+) </h2> </center>
+      <p><img class="left" src="./resources/method2.png" width="600px"></p>
+      <p style="text-align:justify; text-justify:inter-ideograph;"><left>
+        <strong style="font-weight: 900">Overview of upgraded framework.</strong>
+        Top: The proposed shared-projection unit in CycMuNet (CycMuNet+S). Middle: The proposed dense-projection unit in CycMuNet             (CycMuNet+D). Bottom: The proposed feedback CycMuNet (CycMuNet+F).
+
+
+
+
+
+         </left></p>
+
+      <hr>
+
+      <center><h2> Results </h2></center>
+      <p>
+        <b> Quantitative Results </b>
+      </p>
+      <center><p><img class="center" src="./resources/quantitative.png" width="800px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Quantitative (PSNR/SSIM/IE) comparison for ST-VSR (2x, 4x, 8x from left to right).</strong></center>
+      </p>
+	  <center><p><img class="center" src="./resources/quantitative1.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Quantitative (PSNR/SSIM/IE) comparison for S-VSR.</strong></center> 
+      </p>
+	  <center><p><img class="center" src="./resources/quantitative2.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900"> Quantitative comparisons of the state-of-the art methods
+for T-VSR.</strong></center> 
+      </p>
+
+      <p>
+        <b> Qualitative Results </b>
+      </p>
+      <p><img class="center" src="./resources/qualitative.png" width="800px"></p>
+      <p>
+        <center><strong style="font-weight: 900">Qualitative comparison (8x) against the state-of-the-art ST-VSR algorithms.</strong></center>
+      </p>
+	  <p><img class="center" src="./resources/qualitative1.png" width="800px"></p>
+      <p>
+        <center><strong style="font-weight: 900">Qualitative comparison (4x) against the state-of-the-art S-VSR algorithms.</strong></center>
+      </p>
+	  <p><img class="center" src="./resources/qualitative2.png" width="800px"></p>
+      <p>
+        <center><strong style="font-weight: 900">Qualitative comparison against the state-of-the-art T-VSR algorithms.</strong></center>
+      </p>
+      <hr>
+
+      <center> <h2> Ablation Studies </h2> </center>
+      <center><p><img class="center" src="./resources/ablation1.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Quantitative comparisons on the performances (4x) of
+        different modules.</strong> </center>.
+	  </p>
+	  <center><p><img class="center" src="./resources/ablation11.png" width="800px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Visual comparisons (4x) of four variants for the ablation studies on Vimeo90K dataset.</strong> </center> 
+      </p>
+      <center><p><img class="center" src="./resources/ablation2.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Quantitative comparisons on the performances (4x) of different number of projection units.</strong> </center>
+      </p>
+	  <center><p><img class="center" src="./resources/ablation21.png" width="800px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Quantitative comparisons on the performances (4x) of
+different number of projection units.</strong> </center> 
+      </p>
+	  <center><p><img class="center" src="./resources/ablation3.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Quantitative comparisons on the performances (4x) of deep concatenation (DC).</strong> </center>
+      </p>
+	  <center><p><img class="center" src="./resources/ablation31.png" width="800px"></p></center>
+      <p>
+        <strong style="font-weight: 900">Feature maps from up-projection units in CycMu-Net.</strong> Multiple up-projection units can obtain diverse HR representations for guiding the better super-resolution reconstruction by deep concatenation.
+      </p>
+	  <center><p><img class="center" src="./resources/ablation4.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900"> Quantitative comparisons on the performances (4x) of error feedback (EF).</strong> </center>
+	  <center><p><img class="center" src="./resources/ablation41.png" width="800px"></p></center>
+      <p>
+        <strong style="font-weight: 900">Feature maps from up-projection units in CycMu-Net.</strong> They start to focus on
+refining low-frequency information (background) and later pay more attention to improving high-frequency information (moving foreground). 
+      </p>
+	  <center><p><img class="center" src="./resources/ablation5.png" width="600px"></p></center>
+      <p>
+        <strong style="font-weight: 900"> Quantitative comparisons on the performances (4×) of different number of fusion resiudal block (FRB) in each scale up and down module from up-projection units (UPUs) and down-projection units (DPUs).</strong>
+      </p>
+	  <center><p><img class="center" src="./resources/ablation51.png" width="800px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Qualitative comparison of CycMu-Net with different numbers of fusion residual blocks (FRBs).</strong></center> 
+      </p>
+	  <center><p><img class="center" src="./resources/ablation6.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900"> Quantitative comparisons on the performances (4x) of LR supervision.</strong> </center> 
+      </p>
+	  <center><p><img class="center" src="./resources/ablation7.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900"> Quantitative comparisons on the performances (4x) of different weights of loss function.</strong> </center>
+      </p>
+	  <center><p><img class="center" src="./resources/ablation8.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">  Quantitative comparisons on the performances (4x) of different CycMu-Net variants.</strong> </center>
+      </p>
+	  <center><p><img class="center" src="./resources/visualization2.png" width="800px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">Qualitative comparison of CycMu-Net with different numbers of fusion residual blocks (FRBs).</strong></center> 
+      </p>
+	  <center><p><img class="center" src="./resources/ablation9.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">  Runtime of the proposed CycMuNet+ on UCF101 and Vimeo90K datasets.</strong> </center>
+      </p>
+	  
+	  <center><p><img class="center" src="./resources/ablation10.png" width="600px"></p></center>
+      <p>
+        <center><strong style="font-weight: 900">  Runtime comparisons in seconds with existing method on UCF101 and Vimeo90K datasets.</strong> </center> 
+      </p>
+      
+      <hr>  
+
+
+
+<br>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
